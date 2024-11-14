@@ -31,7 +31,7 @@ export async function buscarSuperheroesPorAtributoController(req,res) {
   const { atributo, valor } = req.params;
   const superheroes = await buscarSuperheroesPorAtributo(atributo, valor);
 
-  if (superheroes.lenght > 0) {
+  if (superheroes.length > 0) {
     res.send(rendizarListaSuperheroes(superheroes));
   } else {
     res
@@ -43,5 +43,5 @@ export async function buscarSuperheroesPorAtributoController(req,res) {
 export async function obtenerSuperheroesMayoresDe30Controller(req,res) {
   const superheroes = await obtenerSuperheroesMayoresDe30();
 
- res.end (rendizarListaSuperheroes(superheroes));
+ res.send (rendizarListaSuperheroes(superheroes));
 }
