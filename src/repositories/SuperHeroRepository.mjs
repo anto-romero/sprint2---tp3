@@ -19,7 +19,7 @@ class SuperHeroRepository extends IRepository {
     return await SuperHero.find({
       edad: { $gt: 30 },
       planetaOrigen: "Tierra",
-      poderes: { $size: { $gt: 2 } },
+      $expr: { $gte: [{ $size: "$poderes" }, 2] },
     });
   }
 }
